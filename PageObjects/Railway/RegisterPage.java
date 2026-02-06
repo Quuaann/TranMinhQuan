@@ -78,11 +78,8 @@ public class RegisterPage extends GeneralPage {
 		this.getTxtPid().sendKeys(account.getPid());
 		
 		Utilities.scrollToElement(_btnRegister);
-		
 		this.getBtnRegister().click();
 		
 		return this;
 	}
-	
-			
 }

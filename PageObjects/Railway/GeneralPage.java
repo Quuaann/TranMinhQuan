@@ -3,6 +3,8 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import Constant.Constant;
+import DataObject.Account;
+import Guerrillamail.MailFake;
 
 public class GeneralPage {
 
@@ -58,4 +60,14 @@ public class GeneralPage {
         this.getTabRegister().click();
         return new RegisterPage();
     }
+    
+    // From TC07
+	public void createActiveAccount(HomePage homePage, Account newAccount) {
+		homePage.open();
+		RegisterPage registerPage = homePage.clickRegisterLink();
+		registerPage.enterRegistrationInfo(newAccount);
+		MailFake mailFake = new MailFake();
+        mailFake.openMailFake();
+        mailFake.activeNewMail(newAccount.getEmail());
+	}
 }

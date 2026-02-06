@@ -118,7 +118,8 @@ public class MailFake {
 		this.getTbNewEmail().sendKeys(newmail);
 		this.getBtnSet().click();
         
-        Utilities.waitForVisible(_trEmail);
+		this.waitAndRefreshUntilVisible(Constant.WEBDRIVER, _trEmail, 4);
+        
         Utilities.scrollToElement(_checkbox);
         this.getTrNewMail().click();
 		
